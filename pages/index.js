@@ -21,7 +21,7 @@ export default function Home() {
     return (
         <div className='container'>
             <h1>NBA TEAMS</h1>
-            <input type="text" value={searchInput} onChange={e => setSearchInput(e.value)}/>
+            <input className='search-input-box' type="text" value={searchInput} onChange={e => setSearchInput(e.value)}/>
             <Table teams={teamData}/>
         </div>
     )

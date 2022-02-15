@@ -1,5 +1,6 @@
 $blue: rgb(10, 60, 118);
 $light-blue: rgb(247, 250, 253);
+$highlight-blue: rgb(160, 225, 252);
 
 .container {
     height: fit-content;
@@ -12,11 +13,26 @@ $light-blue: rgb(247, 250, 253);
     overflow: scroll;
 }
 
+h1 {
+    color: $blue;
+    margin-bottom: 1.5rem;
+}
+
+.search-input-box {
+    width: 40%;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 2px solid $blue;
+    font-size: 16pt;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
 .teams-table {
     width: 100%;
     text-align: center;
     border-collapse: separate;
-    border-spacing: 0 20px;
+    border-spacing: 0 10px;
 
     thead {
         background: $blue;
@@ -33,10 +49,13 @@ $light-blue: rgb(247, 250, 253);
     tbody {
         tr {
             background: $light-blue;
-            
+            &:hover {
+                background: $highlight-blue;
+            }
             
             td {
                 padding: 1rem;
+                font-weight: 600;
             }
         }
     }
