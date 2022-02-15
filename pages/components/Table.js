@@ -11,7 +11,7 @@ export default function Table(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.team ? props.teams.map(t => 
+                {props.teams ? props.teams.map(t => 
                     <tr key={t.name}>
                         <td>{t.name}</td>
                         <td>{t.city}</td>
