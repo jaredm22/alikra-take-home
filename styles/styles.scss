@@ -1,6 +1,6 @@
 $blue: rgb(10, 60, 118);
 $light-blue: rgb(247, 250, 253);
-$highlight-blue: rgb(160, 225, 252);
+$highlight-blue: rgb(212, 241, 254);
 
 .container {
     height: fit-content;
@@ -57,6 +57,10 @@ h1 {
                 padding: 1rem;
                 font-weight: 600;
             }
+        }
+
+        .selected {
+            background: $highlight-blue;
         }
     }
 }
