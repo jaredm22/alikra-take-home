@@ -7,23 +7,37 @@ export default function Home() {
 
     const [searchInput, setSearchInput] = useState("")
     const [teams, setTeams] = useState([])
-    const [searchResults, setSearchResults] = useState([])
     const [selectedTeam, setSelectedTeam] = useState("")
+    const [searchResults, setSearchResults] = useState([])
+    const [games, setGames] = useState([])
 
-    const onTeamSelect = (team) => {
-        setSelectedTeam(team)
-    }
-
+    const handleTeamSelect = (team) => setSelectedTeam(team)
     const handleSearchInput = e => setSearchInput(e.target.value)
+    const handleOverlayClose = () => setSelectedTeam("")
 
-    const getTeams = async () => {
-        await axios.get("https://www.balldontlie.io/api/v1/teams").then(res => setTeams(res.data.data))
-    }
-
+    // fetch teams data from api
     useEffect(() => {
+        const getTeams = async () => {
+            await axios.get("https://www.balldontlie.io/api/v1/teams").then(res => setTeams(res.data.data))
+        }
+
         getTeams()
-    }, []) 
+    })
     
+    // fetch games data
+    useEffect(() => {
+        const getGames = async () => {
+            await axios.get(`https://www.balldontlie.io/api/v1/games?seasons[]=2021`).then(res => setGames(res.data.data))
+        }
+        getGames() 
+    })
+
+    if (games != []) {
+        console.log(games)
+        let sortedGames = []
+    }
+    
+    // search and sort handler
     useEffect(() => {
         const search = searchInput.toUpperCase()
 
@@ -43,8 +57,10 @@ export default function Home() {
         <div className='container'>
             <h1>NBA TEAMS</h1>
             <input className='search-input-box' type="text" value={searchInput} onChange={handleSearchInput}/>
-            <Table teams={searchInput == "" ? teams : searchResults} selectedTeam={selectedTeam} onTeamSelect={onTeamSelect}/>
-            {selectedTeam != "" ? <Overlay/> : false}
+            <Table teams={searchInput == "" ? teams : searchResults} selectedTeam={selectedTeam} handleTeamSelect={handleTeamSelect}/>
+            {selectedTeam != "" ? 
+                <Overlay {...teams.find(t => t.abbreviation === selectedTeam)} handleOverlayClose={handleOverlayClose}/> : false
+            }
         </div>
     )
 }

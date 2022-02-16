@@ -16,7 +16,7 @@ export default function Table(props) {
             </thead>
             <tbody>
                 {props.teams ? props.teams.map(t => 
-                    <TableRow key={`tr-${t.name}`} {...t} selectHandler={props.onTeamSelect} selected={props.selectedTeam}/>    
+                    <TableRow key={`tr-${t.name}`} {...t} selectHandler={props.handleTeamSelect} selected={props.selectedTeam}/>    
                 ) : false}
             </tbody>
         </table>
