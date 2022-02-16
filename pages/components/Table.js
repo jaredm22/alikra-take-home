@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import TableRow from './TableRow'
 
 export default function Table(props) {
-
-    const [selectedTeam, setSelectedTeam] = useState("")
-
-    const onTeamSelect = (team) => {
-        setSelectedTeam(team)
-    }
 
     return(
         <table className="teams-table">
@@ -23,7 +16,7 @@ export default function Table(props) {
             </thead>
             <tbody>
                 {props.teams ? props.teams.map(t => 
-                    <TableRow key={`tr-${t.name}`} {...t} selectHandler={onTeamSelect} selected={selectedTeam}/>    
+                    <TableRow key={`tr-${t.name}`} {...t} selectHandler={props.onTeamSelect} selected={props.selectedTeam}/>    
                 ) : false}
             </tbody>
         </table>
