@@ -11,8 +11,10 @@ export default function Overlay(props) {
         setTeamColors(colors)
     }, [])
 
-    let dateTime = props.randomGame.date.split("T")
-    
+    let dateTime = ["2021-12-31"]
+    if (props.randomGame) {
+        dateTime = props.randomGame.date.split("T")
+    }
 
     return(
         <div className="overlay-container">
