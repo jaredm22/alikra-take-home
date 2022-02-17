@@ -19,7 +19,7 @@ export default function Home() {
     // fetch teams data from api
     useEffect(() => {
         const getTeams = async () => {
-            await axios.get(" ").then(res => setTeams(res.data.data))
+            await axios.get("https://www.balldontlie.io/api/v1/teams").then(res => setTeams(res.data.data))
         }
         getTeams()
     }, [])
@@ -49,7 +49,7 @@ export default function Home() {
 
     // filter through games data and find random game for each team
     useEffect(() => {
-        if (games != [] && teams != []) {
+        if (games != [] && teams != [] && teams) {
             let randomGames = {}
 
             teams.forEach(t => {
