@@ -11,7 +11,8 @@ export default function Overlay(props) {
         setTeamColors(colors)
     }, [])
 
-    console.log(teamColors)
+    let dateTime = props.randomGame.date.split("T")
+    
 
     return(
         <div className="overlay-container">
@@ -21,13 +22,14 @@ export default function Overlay(props) {
                     className="side-card-header" 
                     style={teamColors != [] ? {background: teamColors[0], color: teamColors[1]} : {}}
                 >
-                    <h3>{props.name}</h3>
+                    <h3>{props.full_name}</h3>
                     <button className="close-overlay-btn" onClick={props.handleOverlayClose} style={teamColors != [] ? {color: teamColors[1]} : {}}>x</button>
                 </div>
+
+                <h3 className="random-game-details">Random Game Details</h3>
+                
                 <div className="side-card-info-container">
                     <div className="side-card-left">
-                        <h3>Team Full Name</h3>
-                        <h3>Random Game Details</h3>
                         <h3>Date</h3>
                         <h3>Home Team</h3>
                         <h3>Home Team Score</h3>
@@ -36,9 +38,7 @@ export default function Overlay(props) {
                     </div>
 
                     <div className="side-card-right">
-                        <h3>{props.full_name}</h3>
-                        <h3></h3>
-                        <h3>{props.randomGame.date}</h3>
+                        <h3>{dateTime[0]}</h3>
                         <h3>{props.randomGame.home_team.full_name}</h3>
                         <h3>{props.randomGame.home_team_score}</h3>
                         <h3>{props.randomGame.visitor_team.full_name}</h3>

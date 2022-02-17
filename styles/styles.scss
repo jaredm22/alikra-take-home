@@ -72,6 +72,7 @@ h1 {
     top: 0;
     left: 0;
     z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
 
     .side-card-container {
         position: fixed;
@@ -81,6 +82,11 @@ h1 {
         display: flex;
         flex-direction: column;
         background: white;
+        z-index: 2;
+
+        .random-game-details {
+            margin: 1rem 2rem;
+        }
 
         .side-card-info-container {
             height: 100%;
@@ -97,6 +103,7 @@ h1 {
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 0.5rem;
 
             .close-overlay-btn {
                 background: none;
@@ -106,11 +113,15 @@ h1 {
         }
         
         .side-card-left, .side-card-right {
-            padding: 2rem;
+            padding: 0.5rem 3em;
             height: 100%;
             width: 100%;
             display: flex;
             flex-direction: column;
+
+            h3 {
+                margin: 0.5rem 0;
+            }
         }
     }
 }
