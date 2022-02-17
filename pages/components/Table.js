@@ -14,7 +14,7 @@ export default function Table(props) {
                     <th>Division</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="table-body">
                 {props.teams ? props.teams.map(t => 
                     <TableRow key={`tr-${t.name}`} {...t} selectHandler={props.handleTeamSelect} selected={props.selectedTeam}/>    
                 ) : false}

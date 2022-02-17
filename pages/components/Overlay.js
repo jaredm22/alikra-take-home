@@ -16,6 +16,10 @@ export default function Overlay(props) {
         dateTime = props.randomGame.date.split("T")
     }
 
+    useEffect(() => {
+
+    })
+
     return(
         <div className="overlay-container">
             {props.randomGame ? 

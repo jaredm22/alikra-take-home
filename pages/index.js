@@ -20,7 +20,7 @@ export default function Home() {
     // fetch teams data from api
     useEffect(() => {
         const getTeams = async () => {
-            await axios.get("https://www.balldontlie.io/api/v1/teams").then(res => setTeams(res.data.data))
+            await axios.get(" ").then(res => setTeams(res.data.data))
         }
         getTeams()
     }, [])
