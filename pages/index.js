@@ -12,7 +12,6 @@ export default function Home() {
     const [games, setGames] = useState([])
     const [randomGames, setRandomGames] = useState([])
 
-
     const handleTeamSelect = (team) => setSelectedTeam(team)
     const handleSearchInput = e => setSearchInput(e.target.value)
     const handleOverlayClose = () => setSelectedTeam("")

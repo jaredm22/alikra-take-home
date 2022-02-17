@@ -1,5 +1,3 @@
-import Table from "../../pages/components/Table"
-
 describe('The Home Page', () => {
     it('successfully loads', () => {
         cy.visit('/') 
@@ -7,7 +5,6 @@ describe('The Home Page', () => {
 })
   
 describe('Search Input', () => {
-  
     it('accepts input', () => {
       const typedText = 'ATL'
   

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import TableRow from './TableRow'
 
 export default function Table(props) {
